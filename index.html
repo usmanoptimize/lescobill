@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Check Your LESCO Bill</title>
+</head>
+<body>
+<div class="custom-card">
+    <div class="card-header"><span>Check Your LESCO Bill</span></div>
+    <div class="card-body">
+        <form name="checkBillForm" id="checkBillForm">
+            <section class="main min-height-30">
+                <div id="dropdown" class="wrapper-demo hidden">
+                    <div id="dd" class="wrapper-dropdown-4"><span id="idLable">Saved Reference Numbers</span>
+                        <ul class="dropdown" id="dropdownContent"></ul>
+                    </div>
+                </div>
+            </section>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <input class="bill-type" type="radio" name="option" value="reference" id="referenceRadio" checked>
+                        </div>
+                        <div class="col margin-left-5">
+                            <label for="referenceRadio">Reference No</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="radio" name="option" value="customer" id="customerRadio" />
+
+                        <div class="col margin-left-5">
+                            <label for="customerRadio">Customer ID</label></div>
+                        </div>
+                        </div>
+                        </div>
+            </div>
+            <div class="center">
+                    <input type="text" class="input-field" id="inputField" name="refno" placeholder="Input 14 digit Reference Number">
+                </div>
+            <input class="input-field" type="hidden" name="company" value="mepco">
+            <div class="margin-top-20 hidden error" id="error"></div>
+            <div class="margin-top-30 center">
+                <button type="button" id="checkBill" class="button" >Check Bill</button>
+            </div>
+        
+         
+        </form>
+
+<form id="refForm" method="post" action="http://www.lesco.gov.pk:36269/Modules/CustomerBill/CustomerMenu.asp">
+    <input type="hidden" class="input-field" id="txtBatchNo" name="txtBatchNo" />
+    <input type="hidden" class="input-field" id="txtSubDiv" name="txtSubDiv" />
+    <input type="hidden" class="input-field" id="txtRefNo" name="txtRefNo" />
+    <input type="hidden" class="input-field" value="U" name="cmbRU" />
+    <input type="hidden" class="input-field" value="Customer Menu" name="btnViewMenu" />
+</form>
+
+<form id="custForm" method="post" action="http://www.lesco.gov.pk:36269/Modules/CustomerBill/CustomerMenu.asp">
+    <input type="hidden" class="input-field" id="txtCustID"  name="txtCustID" />
+   <input type="hidden" class="input-field" value="Customer Menu" name="btnViewMenu" />
+
+
+</form>
+
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
